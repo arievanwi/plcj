@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head/>
+<body>
+Basic interfaces and related classes for the Omron FINS protocol implementation. 
+Contains all functionality to be able to communicate to Omron PLCs using the Omron FINS protocol.
+<h2>Global use</h2>
+<p>
+In a FINS environment, all autonomous functional parts that communicate with each other are called
+units. As such, software that wants to communicate with other parts in a network must play this
+unit role. Units can send commands to each other to which the receiving unit response with an answer.
+The contents of this answer depends on the command, for example: a command that writes data at
+a specific range of (virtual) addresses just sends a status as response. This while for example
+a read command expects that the response contains the data requested.
+</p>
+<p>
+In this package, software that wants to communicate with other units must implement the
+{@link org.avineas.fins.Unit} interface. For receiving data, a callback method must be implemented
+that should handle the command and return a response. For sending data, the interface contains
+an injection method to which a {@link org.avineas.fins.Transmitter} instance is passed. That
+instance can be used to send packets to other units.
+</p>
+<p>
+{@link org.avineas.fins.Unit}s must be wired to {@link org.avineas.fins.gw.Gateway} instances, either
+by adding them to the gateway for example via dependency injection or -in an OSGI environment- 
+by registering the {@link org.avineas.fins.Unit} as an OSGi service. In that case the 
+service property "fins.unit.address" must contain the FINS address in the string format 
+as expected by the {@link org.avineas.fins.Address} class. 
+</p>
+<h2>Related Documentation</h2>
+The FINS protocol is described in documents from 
+the <a href="http://oeiweb.omron.com">Omron technical web site</a>.
+</body>
+</html>

@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.avineas.fins
+Bundle-Name: FINS protocol for PLC/J
+Bundle-Description: Implementation of the FINS protocol
+Bundle-Vendor: aVineas IT Consulting
+Bundle-Version: 1.0.1
+Bundle-Activator: org.avineas.fins.osgi.Activator
+Import-Package: org.apache.commons.logging,
+ org.osgi.framework;version="1.3.0",
+ org.osgi.service.cm
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.avineas.fins;version="1.0.0";uses:="org.avineas.fins.payload",
+ org.avineas.fins.gw;version="1.0.0";uses:="org.avineas.fins,org.avineas.fins.payload",
+ org.avineas.fins.payload;version="1.0.0"

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head/>
+<body>
+Basic (not complete) command and response implementations. Contains the classes that represent
+the information exchanged during communication between units. The basic class is
+{@link org.avineas.fins.payload.Payload}, the base class for all data exchanged, either as
+command or as response. As to be expected, both the basic {@link org.avineas.fins.payload.Command} and
+{@link org.avineas.fins.payload.Response} classes directly extend the 
+{@link org.avineas.fins.payload.Payload} class. Further specializations are:
+<ul>
+<li>
+{@link org.avineas.fins.payload.WriteCommand} which represents a memory area write command, to which
+a normal {@link org.avineas.fins.payload.Response} is sent as response, and
+</li>
+<li>
+{@link org.avineas.fins.payload.ReadCommand} which represents a memory area read command, to which a
+packet in the form of a {@link org.avineas.fins.payload.ReadResponse} is sent as response. 
+</li>
+</ul>
+Note that although specialized classes exist, no casting to the specialized types must be done
+while receiving the command or response. In stead construct the specialized instance using
+the constructor accepting the contents of the command/response.
+</body>
+</html>
