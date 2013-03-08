@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: IO code
+Bundle-SymbolicName: org.avineas.io
+Bundle-Version: 1.0.1
+Bundle-Vendor: aVineas IT Consulting
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.avineas.io;version="1.0.0",
+ org.avineas.io.helper;version="1.0.0",
+ org.avineas.io.notify;version="1.0.0",
+ org.avineas.io.stat;version="1.0.0",
+ org.avineas.io.tcp;version="1.0.0"
