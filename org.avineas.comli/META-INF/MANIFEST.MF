@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: COMLI protocol implementation (and interfaces)
+Bundle-SymbolicName: org.avineas.comli
+Bundle-Version: 1.0.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Activator: org.avineas.comli.osgi.Activator
+Import-Package: org.apache.commons.logging;version="1.1.1",
+ org.avineas.io;version="1.0.0",
+ org.osgi.framework,
+ org.osgi.util.tracker;version="1.4.2"
+Bundle-Vendor: aVineas IT Consulting
+Export-Package: org.avineas.comli;version="1.0.0",
+ org.avineas.comli.impl;version="1.0.0"

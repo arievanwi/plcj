@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+</head>
+<body>
+ABB Comli PLC protocol implementation. Contains both the interfaces for the master
+and slave handling of the protocol. The details of the protocol itself
+can be found at <a href="http://www.sattcontrol.se/doc/COMLI_en.pdf">
+www.sattcontrol.se/doc/COMLI_en.pdf</a>
+<h2>Main interfaces</h2>
+<ul>
+<li>{@link org.avineas.comli.Slave} is the interface that must be implemented by
+slave handlers that react to actions from a master.</li>
+<li>{@link org.avineas.comli.Master} is the master interface that is exported by
+this bundle as a result of the availability of a master channel.</li>
+</ul>
+<h2>Helper class</h2>
+Next to the interfaces, the package contains a helper class for coding and
+decoding messages to an array. Useful for constructing messages to send and
+decode messages received.
+</body>
+</html>

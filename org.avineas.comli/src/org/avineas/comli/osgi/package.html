@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head/>
+<body>
+OSGi based helper functionality for the COMLI protocol handling. Takes care of detecting
+the correct channels for handling the protocol at either the slave or master side. 
+<h2>Channels</h2>
+<p>
+The bundle tracks OSGi services of type {@link org.avineas.io.Channel} and checks for the
+property "comli" on the service. <br/>
+If this property is set to "slave", the bundle assumes
+that the channel is the channel to use for the COMLI slave instances and starts reading
+from that channel dispatching received messages to {@link org.avineas.comli.Slave} instances
+registered in the OSGi service registry.
+<br/> 
+If this property is set to "master", the bundle assumes that the channel
+is the channel to use for a COMLI master and starts a COMLI
+{@link org.avineas.comli.Master} service that communicates via that channel. This master
+instance is declared as OSGi service with the same properties as the channel below, which
+means that it can be looked-up given those properties.
+</p>
+<p>
+Both type of channels can have a "timeout" property which should contain an integer value
+containing the number of milliseconds to use as time-out value while reading from the
+channel (as a response from either master/slaves). This value defaults to 3000 ms. The
+master channel can also contain a "tries" property, indicating the number of times that
+a message is sent to a slave without getting an answer. This value defaults to 3.
+</p>
+<h2>Masters</h2>
+<p>
+As already indicated above, a COMLI master service is started for each channel service
+that match the master criteria. The master can be looked up as service in the OSGi service
+registry.
+</p>
+<h2>Slaves</h2>
+<p>
+COMLI slaves are automatically picked up by the bundle if they are declared as OSGi service
+under the {@link org.avineas.comli.Slave} interface. The bundle assumes that the service
+has a property "identification" containing the integer identification of the slave (which is used
+by the master to send data to a specific slave).
+</p>
+</body>
+</html>

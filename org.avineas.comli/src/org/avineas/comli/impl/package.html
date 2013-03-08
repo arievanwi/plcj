@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+</head>
+<body>
+Implementation of the ABB Comli PLC protocol interfaces both at the slave handling and
+the master side.
+<h2>Main classes</h2>
+<p>
+The main classes of this package are {@link org.avineas.comli.impl.MasterImpl} and
+{@link org.avineas.comli.impl.SlaveManager}, which as their name already suggest implement
+the master and the slave side of the COMLI protocol.
+</p>
+<p>
+{@link org.avineas.comli.impl.MasterImpl} implements the master side taking a channel
+to communicate over and a time-out value for responses as parameters. The master sends
+a message to a specific slave and waits for the response from the slave. The handling 
+depends on the method invoked on the master, as indicates in {@link org.avineas.comli.Master}.
+</p>
+<p>
+{@link org.avineas.comli.impl.SlaveManager} maintains a set of slaves. It reads continuously from
+a channel and dispatches the message received to one of the {@link org.avineas.comli.Slave} 
+instances it manages. The response from the slave is sent back as a reply to the master. The 
+slaves are linked to the slave manager via the {@link org.avineas.comli.impl.SlaveProvider}
+interface, in non-OSGi environments normally handled via the 
+{@link org.avineas.comli.impl.SimpleSlaveProvider} class.
+</p>
+</body>
+</html>
